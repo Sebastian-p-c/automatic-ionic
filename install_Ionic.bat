@@ -17,16 +17,11 @@ where node
 where npm
 
 :: Verificar la instalación de Node.js
+echo ===================================
+echo versiones:
 node -v
 npm -v
-
-:: Asegurarse de que los comandos node y npm están disponibles
-if %ERRORLEVEL% NEQ 0 (
-    echo Error: Node.js no se ha instalado correctamente.
-    exit /b %ERRORLEVEL%
-)
-
-echo Node.js ha sido instalado con éxito.
+echo ===================================
 
 echo Instalando Ionic...
 
@@ -35,7 +30,7 @@ npm install -g @ionic/cli
 
 :: Verificar que Ionic se instaló correctamente
 if %ERRORLEVEL% NEQ 0 (
-    echo Error: Ionic no se ha instalado correctamente.
+    echo Ionic no se ha instalado correctamente.
     exit /b %ERRORLEVEL%
 )
 
