@@ -35,69 +35,6 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b %ERRORLEVEL%
 )
 
-:: Verificar la instalación de Node.js
-echo ===================================
-echo versiones:
-node -v
-npm -v
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al verificar la instalación de Node.js.
-    exit /b %ERRORLEVEL%
-)
-echo ===================================
-
-:: Instalar NVM
-echo Instalando NVM...
-
-:: Descargar el instalador de NVM para Windows
-curl -o nvm-setup.zip https://github.com/coreybutler/nvm-windows/releases/latest/download/nvm-setup.zip
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al descargar NVM.
-    exit /b %ERRORLEVEL%
-)
-
-:: Descomprimir el archivo ZIP
-powershell -command "Expand-Archive -Path nvm-setup.zip -DestinationPath nvm-setup"
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al descomprimir el archivo de NVM.
-    exit /b %ERRORLEVEL%
-)
-
-:: Ejecutar el instalador de NVM
-echo Ejecutando el instalador de NVM...
-start /wait nvm-setup/nvm-setup.exe
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al instalar NVM.
-    exit /b %ERRORLEVEL%
-)
-
-:: Configurar NVM para usar Node.js
-echo Instalando Node.js usando NVM...
-nvm install lts
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al instalar Node.js usando NVM.
-    exit /b %ERRORLEVEL%
-)
-
-nvm use lts
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al configurar la versión de Node.js usando NVM.
-    exit /b %ERRORLEVEL%
-)
-
-:: Verificar la instalación de Node.js
-node -v
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al verificar la instalación de Node.js.
-    exit /b %ERRORLEVEL%
-)
-
-npm -v
-if %ERRORLEVEL% NEQ 0 (
-    echo Error al verificar la instalación de npm.
-    exit /b %ERRORLEVEL%
-)
-
 :: Instalar Ionic
 echo Instalando Ionic...
 
